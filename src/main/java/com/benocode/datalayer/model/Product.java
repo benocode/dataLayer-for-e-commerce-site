@@ -16,7 +16,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 
-@Data
+
 @Entity
 @Table(name = "produit")
 public class Product {
@@ -54,45 +54,61 @@ public class Product {
 		comment.setProduct(this);
 	}
 	
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
+	public List<Category> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
+	}
+
 	public void removeComment(Comment comment) {
 		comments.remove(comment);
 		comment.setProduct(null);
 	}
 
-//	public int getProductId() {
-//		return productId;
-//	}
-//
-//	public void setProductId(int productId) {
-//		this.productId = productId;
-//	}
-//
-//	public String getName() {
-//		return name;
-//	}
-//
-//	public void setName(String name) {
-//		this.name = name;
-//	}
-//
-//	public String getDescription() {
-//		return description;
-//	}
-//
-//	public void setDescription(String description) {
-//		this.description = description;
-//	}
-//
-//	public int getCost() {
-//		return cost;
-//	}
-//
-//	public void setCost(int cost) {
-//		this.cost = cost;
-//	}
-//	
-//	@Override
-//	public String toString() {
-//		return "produit_id[" + this.productId + "], nom[" + this.name + "], description[" + this.description + "], coût[" + this.cost + "]";
-//	}
+	public int getProductId() {
+		return productId;
+	}
+
+	public void setProductId(int productId) {
+		this.productId = productId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public int getCost() {
+		return cost;
+	}
+
+	public void setCost(int cost) {
+		this.cost = cost;
+	}
+	
+	@Override
+	public String toString() {
+		return "produit_id[" + this.productId + "], nom[" + this.name + "], description[" + this.description + "], coût[" + this.cost + "]";
+	}
 }

@@ -16,7 +16,7 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 
-@Data
+
 @Entity
 @Table(name = "categorie")
 public class Category {
@@ -54,24 +54,32 @@ public class Category {
 		product.getCategories().remove(this);
 	}
 	
-//	public int getCategoryId() {
-//		return categoryId;
-//	}
-//
-//	public void setCategoryId(int categoryId) {
-//		this.categoryId = categoryId;
-//	}
-//
-//	public String getName() {
-//		return name;
-//	}
-//
-//	public void setName(String name) {
-//		this.name = name;
-//	}
-//	
-//	@Override
-//	public String toString() {
-//		return "categorie_id[" + this.categoryId + "], nom[" + this.name + "]";
-//	}
+	public int getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	@Override
+	public String toString() {
+		return "categorie_id[" + this.categoryId + "], nom[" + this.name + "]";
+	}
 }

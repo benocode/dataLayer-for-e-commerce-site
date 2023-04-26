@@ -21,4 +21,12 @@ public class CommentService {
 	public Optional<Comment> getCommentById(Integer id) {
 		return commentRepository.findById(id);
 	}
+	
+	public Comment addComment(Comment comment) {
+		return commentRepository.save(comment);
+	}
+	
+	public Iterable<Comment> getCommentWhereContentContaining(String word) {
+		return commentRepository.findByContentContaining(word);
+	}
 }

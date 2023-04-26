@@ -11,7 +11,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
-@Data
+
 @Entity
 @Table(name = "commentaire")
 public class Comment {
@@ -24,28 +24,39 @@ public class Comment {
 	@Column(name = "contenu")
 	private String content;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = {
+			CascadeType.PERSIST,
+			CascadeType.MERGE
+	})
 	@JoinColumn(name = "produit_id")
 	private Product product;
 	
-//	public int getCommentId() {
-//		return commentId;
-//	}
-//
-//	public void setCommentId(int commentId) {
-//		this.commentId = commentId;
-//	}
-//
-//	public String getContent() {
-//		return content;
-//	}
-//
-//	public void setContent(String content) {
-//		this.content = content;
-//	}
-//	
-//	@Override
-//	public String toString() {
-//		return "commentaire_id[" + this.commentId + "], contenu[" + this.content + "]";
-//	}
+	public int getCommentId() {
+		return commentId;
+	}
+
+	public void setCommentId(int commentId) {
+		this.commentId = commentId;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+	
+	@Override
+	public String toString() {
+		return "commentaire_id[" + this.commentId + "], contenu[" + this.content + "]";
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
 }

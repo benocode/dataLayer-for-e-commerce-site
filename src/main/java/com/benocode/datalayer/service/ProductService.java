@@ -21,4 +21,26 @@ public class ProductService {
 	public Optional<Product> getProductById(Integer id) {
 		return productRepository.findById(id);
 	}
+	
+	public Product addProduct(Product product) {
+		return productRepository.save(product);
+	}
+	
+	public Iterable<Product> getProductsByName(String name) {
+//		return productRepository.findByName(name);
+		return productRepository.findByNameJPQL(name);
+	}
+	
+	public Iterable<Product> getProductsByCategoryName(String name) {
+		return productRepository.findByCategoriesName(name);
+	}
+	
+	public Iterable<Product> getProductsByCost(int cost) {
+		return productRepository.findByCostNative(cost);
+	}
+	
+	public Iterable<Product> getProductsWhereCostLessThan(int cost) {
+		return productRepository.findByCostLessThan(cost);
+	}
+
 }

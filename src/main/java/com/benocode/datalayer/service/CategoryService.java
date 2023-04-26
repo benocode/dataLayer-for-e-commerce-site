@@ -21,4 +21,16 @@ public class CategoryService {
 	public Optional<Category> getCategoryById(Integer id) {
 		return categoryRepository.findById(id);
 	}
+	
+	public Category addCategory(Category category) {
+		return categoryRepository.save(category);
+	}
+	
+	public Iterable<Category> getCategoriesByName(String name) {
+		return categoryRepository.findByName(name);
+	}
+	
+	public Iterable<Category> getCategoriesByProductName(String name) {
+		return categoryRepository.findByProductsName(name);
+	}
 }
